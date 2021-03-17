@@ -32,6 +32,7 @@ module.exports = function transform(a) {
    }
   return number;
    })
+   a = a.join('').split('');
  for (let i = 0; i < k.length; i++) {
    if (k[i] === 'delete2') {
      k[i]= 'delete';
@@ -39,7 +40,7 @@ module.exports = function transform(a) {
    }
  }
  function elete(num) {
-     return num !== "delete";
+     return num !== 'delete';
    }
    k = k.filter(elete);
    k = k.filter(und);
