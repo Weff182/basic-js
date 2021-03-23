@@ -5,3 +5,4 @@ module.exports = function calculateHanoi(disksNumber, turnsSpeed) {
   let sec = (hodi / (turnsSpeed / 3600));
     return {turns: hodi, seconds: Math.floor(sec)}
 };
+
