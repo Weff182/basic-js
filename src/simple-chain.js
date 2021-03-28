@@ -5,17 +5,17 @@ const chainMaker = {
     return this.chain.length;
   },
   addLink(val) {
-    const n = val !== null ? `${val}` : 'null';
-    this.chain.push(`( ${n} )`);
+    const ne = val !== null ? `${val}` : 'null';
+    this.chain.push(`( ${ne} )`);
     return this;    
   },
-  removeLink(position) {
-    if (position <= 0 || typeof position !== 'number' || position % 1 !== 0 || position >= this.chain.length) {
+  removeLink(positions) {
+    if (positions <= 0 || typeof positions !== 'number' || positions % 1 !== 0 || positions >= this.chain.length) {
       this.chain = [];
       throw new Error;
     }
 
-    this.chain.splice(position - 1, 1);
+    this.chain.splice(positions - 1, 1);
     return this;
   },
   reverseChain() {
