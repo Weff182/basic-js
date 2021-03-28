@@ -1,23 +1,33 @@
 const CustomError = require("../extensions/custom-error");
-let array = [];
 const chainMaker = {
-    getLength(array) {
-   return array.length;
+  chain: [],
+  getLength() {
+    return this.chain.length;
   },
-  addLink(value) {
-    value = `( ${value} )~~`
-    return array.push(String(value));
+  addLink(val) {
+    const n = val !== null ? `${val}` : 'null';
+    this.chain.push(`( ${n} )`);
+    return this;    
   },
   removeLink(position) {
-    return array.splice(position - 1, 1)
+    if (position <= 0 || typeof position !== 'number' || position % 1 !== 0 || position >= this.chain.length) {
+      this.chain = [];
+      throw new Error;
+    }
+
+    this.chain.splice(position - 1, 1);
+    return this;
   },
-  reverseChain(array) {
-    return array.reverse();
+  reverseChain() {
+    this.chain.reverse();
+    return this;
   },
-  finishChain(array) {
-    array = array.join('');
-    return array;
+  finishChain() {
+    const result = this.chain.join('~~');
+    this.chain = [];
+    return result;
   }
-};
+}
+
 
 module.exports = chainMaker;

@@ -52,7 +52,7 @@ const strAlphabet = alphabet.length;
         result += alphabet.charAt(((MessageLetterIndex + strAlphabet) - KeyLetterIndex) % strAlphabet);
     }
 }
-return (this.directReverse === 'reverse') ? result.split('').reverse().join('') : result;
+return (this.directReverse == 'reverse') ? result.split('').reverse().join('') : result;
 
 }
 }
